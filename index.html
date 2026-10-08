@@ -44,6 +44,18 @@
         .contact-links a { display: inline-flex; align-items: center; gap: 6px; background: var(--surface); padding: 8px 16px; border-radius: 6px; border: 1px solid var(--border); font-size: 0.9rem; }
         .contact-links a:hover { background: var(--border); }
 
+            /* Profile Picture */
+.profile-pic {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15);
+    margin-bottom: 24px;
+    display: block;
+}
+
         /* Sections */
         section { padding: 60px 0; border-bottom: 1px solid var(--border); }
         section:last-of-type { border-bottom: none; }
@@ -114,12 +126,13 @@
         <header>
             <div class="header-content">
                 <div class="header-text">
+                    <img src="profile.png" alt="Nisha Khadka BK" class="profile-pic">
                     <h1>Nisha Khadka BK</h1>
-                    <h2>Data Analyst | MSc Data Analytics (Distinction)</h2>
-                    <p>I turn messy, large-scale data into clear, fair, and decision-ready insights.</p>
+                    <h2>Data Analyst</h2>
+                    
                     <div class="contact-links">
-                        <a href="mailto:nishakhadkabk@gmail.com">✉️ Email</a>
-                        <a href="https://github.com/nisha-khadkabk" target="_blank">🐙 GitHub</a>
+                        <a href="mailto:nishakhadkabk@gmail.com">Email</a>
+                        <a href="https://github.com/nisha-khadkabk" target="_blank">GitHub</a>
                     </div>
                 </div>
             </div>
