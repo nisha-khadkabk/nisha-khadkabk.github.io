@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nisha Khadka BK | Data Analyst Portfolio</title>
+    <meta name="description" content="Turning complex datasets into fair, reliable, and decision-ready insights. Portfolio of various projects throughout the years.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Nisha Khadka BK | Data Analyst Portfolio">
+    <meta property="og:description" content="Turning complex datasets into fair, reliable, and decision-ready insights. Portfolio of various projects throughout the years.">
+    <meta property="og:type" content="website">
+
+    <style>
+        :root {
+            --bg: #0f172a;
+            --surface: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #38bdf8;
+            --accent-hover: #0ea5e9;
+            --border: #334155;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+        body { background-color: var(--bg); color: var(--text-primary); line-height: 1.6; }
+        a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
+        a:hover { color: var(--accent-hover); }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+        /* Nav */
+        nav { position: sticky; top: 0; background: rgba(15,23,42,0.9); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); z-index: 100; }
+        nav .container { display: flex; justify-content: space-between; align-items: center; padding-top: 12px; padding-bottom: 12px; }
+        nav .brand { font-weight: 700; color: var(--text-primary); }
+        nav ul { display: flex; gap: 20px; list-style: none; font-size: 0.9rem; }
+        @media (max-width: 600px) { nav ul { display: none; } }
+
+        /* Header */
+        header { padding: 80px 0 40px; border-bottom: 1px solid var(--border); }
+        .header-content { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px; }
+        .header-text h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
+        .header-text h2 { font-size: 1.25rem; color: var(--accent); font-weight: 500; margin-bottom: 16px; }
+        .header-text p { color: var(--text-secondary); max-width: 600px; margin-bottom: 24px; }
+        .contact-links { display: flex; gap: 16px; flex-wrap: wrap; }
+        .contact-links a { display: inline-flex; align-items: center; gap: 6px; background: var(--surface); padding: 8px 16px; border-radius: 6px; border: 1px solid var(--border); font-size: 0.9rem; }
+        .contact-links a:hover { background: var(--border); }
+
+        /* Sections */
+        section { padding: 60px 0; border-bottom: 1px solid var(--border); }
+        section:last-of-type { border-bottom: none; }
+        .section-title { font-size: 1.5rem; font-weight: 700; margin-bottom: 32px; display: flex; align-items: center; gap: 12px; }
+        .section-title::after { content: ""; height: 1px; background: var(--border); flex-grow: 1; }
+
+        /* About */
+        .about-text { color: var(--text-secondary); max-width: 800px; font-size: 1.05rem; }
+        .about-text strong { color: var(--text-primary); }
+
+        /* Projects */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+        .project-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; transition: transform 0.2s, border-color 0.2s; display: flex; flex-direction: column; }
+        .project-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+        .project-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+        .project-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 16px; }
+        .project-card .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+        .project-card .tag { font-size: 0.75rem; background: rgba(56, 189, 248, 0.1); color: var(--accent); padding: 4px 10px; border-radius: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
+        .project-card p { color: var(--text-secondary); font-size: 0.95rem; flex-grow: 1; margin-bottom: 20px; }
+        .project-card .links { display: flex; gap: 16px; font-size: 0.9rem; font-weight: 500; }
+        .project-card .img-placeholder { width: 100%; height: 180px; background: #0f172a; border-radius: 8px; margin-bottom: 16px; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); font-size: 0.8rem; border: 1px dashed var(--border); }
+
+        /* Skills */
+        .skills-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .skill-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 24px; }
+        .skill-card h3 { font-size: 1.05rem; margin-bottom: 16px; color: var(--accent); }
+        .skill-card ul { list-style: none; padding: 0; }
+        .skill-card li { position: relative; padding-left: 18px; margin-bottom: 10px; font-size: 0.9rem; color: var(--text-secondary); }
+        .skill-card li::before { content: "•"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
+        @media (max-width: 768px) { .skills-grid { grid-template-columns: 1fr; } }
+
+        /* Experience */
+        .experience-item { margin-bottom: 32px; }
+        .experience-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; margin-bottom: 8px; }
+        .experience-header h3 { font-size: 1.1rem; font-weight: 600; }
+        .experience-header .date { color: var(--text-secondary); font-size: 0.9rem; }
+        .experience-item p, .experience-item ul { color: var(--text-secondary); font-size: 0.95rem; }
+        .experience-item ul { padding-left: 20px; margin-top: 8px; }
+        .experience-item li { margin-bottom: 4px; }
+
+        /* Footer */
+        footer { padding: 40px 0; text-align: center; color: var(--text-secondary); font-size: 0.85rem; }
+
+        @media (max-width: 768px) {
+            .header-content { flex-direction: column; }
+            .header-text h1 { font-size: 2rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="container">
+            <span class="brand">Nisha Khadka BK</span>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <div class="header-content">
+                <div class="header-text">
+                    <h1>Nisha Khadka BK</h1>
+                    <h2>Data Analyst | MSc Data Analytics (Distinction)</h2>
+                    <p>I turn messy, large-scale data into clear, fair, and decision-ready insights.</p>
+                    <div class="contact-links">
+                        <a href="mailto:nishakhadkabk@gmail.com">✉️ Email</a>
+                        <a href="https://github.com/nisha-khadkabk" target="_blank">🐙 GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ABOUT -->
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-text">
+                <p>I am a recently graduated Data Analyst with a background in engineering and business experience. I have experience building automated data pipelines and ETL systems that process over 900K records while ensuring data quality and maintaining fairness in high-stakes environments.</p>
+                <br>
+                <p>I have a practical understanding of how data supports operational decisions beyond just reporting. From fairness-aware pricing to querying large-scale police records, I translate technical requirements into reliable findings for both technical and non-technical teams.</p>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <img src="Dissertation_Dashboard.png" alt="Policy Dashboard">
+                    <h3>Fairness-aware Dynamic Pricing with Airbnb Rentals</h3>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">XGBoost</span>
+                        <span class="tag">Fairness-aware ML</span>
+                    </div>
+                    <p>Processed 730,461 listing-nights across 8,026 Edinburgh Airbnb rental properties. Trained Random Forest (R²=0.39) and XGBoost (R²=0.45) models to predict nightly prices. Built a "prioritised-compliance" fairness mechanism that targeted the most aggressively overpriced listings. At the recommended setting (λ=0.45) with fairness parameter, student affordability rose from 22.7% to ~28% while host revenue dropped by less than 1.1%. The framework proved robust across two independent baselines and three different budget thresholds.</p>
+                    <div class="links"><a href="https://github.com/nisha-khadkabk/nisha-khadkabk.github.io/blob/main/Dissertation_report.pdf" target="_blank">View Report →</a></div>
+
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <img src="Airline_Satisfaction.png" alt="Airline Satisfaction Dashboard">
+                    <h3>Airline Passenger Satisfaction Factors</h3>
+                    <div class="tags">
+                        <span class="tag">SAS EM</span>
+                        <span class="tag">Data Mining</span>
+                        <span class="tag">Neural Networks</span>
+                    </div>
+                    <p>Analyzed a large-scale airline passenger dataset using SAS Enterprise Miner. Built and compared eight predictive models — including Decision Trees, Logistic Regression, and Neural Networks — to identify key drivers of passenger satisfaction. The final optimised model accurately flagged 9 out of every 10 dissatisfied passengers, providing clear operational insights for service improvement.</p>
+                    <div class="links"><a href="https://github.com/nisha-khadkabk/nisha-khadkabk.github.io/blob/main/evidence/Airline_Satisfaction_Report.pdf" target="_blank">View Report →</a></div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <img src="Spotify_dashboard.jpg" alt="Spotify BI Dashboard">
+                    <h3>Spotify BI Architecture and Dashboard</h3>
+                    <div class="tags">
+                        <span class="tag">BI Architecture</span>
+                        <span class="tag">Data Sources</span>
+                        <span class="tag">Dashboard Design</span>
+                    </div>
+                    <p>Designed a conceptual Business Intelligence architecture for Spotify, covering internal and external data sources, and evaluating the role of unstructured data in recommendation engines, sentiment analysis, and ad targeting. Aligned with McKinsey's data transformation shifts, then built an executive-facing revenue dashboard in Excel visualising five years (2020–2024) of revenue, premium vs. ad-supported streams, listener growth, and regional distribution using Moriarty's and Geckoboard's design principles.</p>
+                    <div class="links"><a href="https://github.com/nisha-khadkabk/nisha-khadkabk.github.io/blob/main/evidence/Spotify_BI_architecture.pdf" target="_blank">View Report →</a></div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <img src="UK_crime_analysis.png" alt="UK Crime Analysis">
+                    <h3>UK Crime Data Analysis</h3>
+                    <div class="tags">
+                        <span class="tag">PySpark</span>
+                        <span class="tag">Big Data</span>
+                    </div>
+                    <p>Analysed 912,621 UK police crime records from four counties over 25 months using PySpark. Identified seasonal peaks, yearly trends, and high-density crime hotspots, producing location-based insights to support strategic resource allocation and operational planning.</p>
+                    <div class="links"><a href="https://github.com/nisha-khadkabk/nisha-khadkabk.github.io/blob/main/evidence/UK_Crime_Analysis_Report.pdf" target="_blank">View Report →</a></div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <img src="Titanic_ML.png" alt="Titanic ML Prediction">
+                    <h3>Titanic ML Prediction across Various Models</h3>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Random Forest</span>
+                        <span class="tag">Classification</span>
+                    </div>
+                    <p>Built an end-to-end machine learning pipeline in Python to predict Titanic passenger survival, covering data cleaning, missing value imputation, feature engineering, and model evaluation. Compared Logistic Regression, Naive Bayes, and Random Forest, with Random Forest achieving the best performance at 81.03% accuracy. Feature importance analysis identified Gender, Passenger Class, and Fare as the strongest predictors, aligning with historical survival patterns.</p>
+                    <div class="links"><a href="https://github.com/nisha-khadkabk/nisha-khadkabk.github.io/blob/main/evidence/Titanic_ML_Report.pdf" target="_blank">View Report →</a></div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <img src="College_performance.jpg" alt="Graduation rate vs factors">
+                    <h3>UK College Performance</h3>
+                    <div class="tags">
+                        <span class="tag">SAS</span>
+                        <span class="tag">Excel</span>
+                        <span class="tag">Statistics</span>
+                    </div>
+                    <p>Merged and cleaned three years of performance data from UK Further Education and Sixth Form colleges. Applied non-parametric tests (Kruskal-Wallis, Spearman) after confirming non-normal distributions. Found a strong positive correlation (rho = 0.55) between average contact hours per learner and Value Added Factor, while graduation pass rate showed only weak links to contact hours. Sixth Form colleges consistently outperformed FE colleges, and large institutions in the South East achieved the highest performance.</p>
+                    <div class="links"><a href="https://github.com/nisha-khadkabk/nisha-khadkabk.github.io/blob/main/evidence/University_performance_report.pdf" target="_blank">View Report →</a></div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="project-card">
+                    <img src="Midland_Theatre_DW.png" alt="Star schema data mart">
+                    <h3>Midland Theatre Data Warehouse & Data Mart</h3>
+                    <div class="tags">
+                        <span class="tag">Oracle SQL</span>
+                        <span class="tag">Star Schema</span>
+                        <span class="tag">ETL</span>
+                        <span class="tag">Dimensional Modelling</span>
+                    </div>
+                    <p>Designed and implemented a star schema data mart in Oracle SQL for a theatre ticket-sales scenario. Declared the grain (one row per client, theatre, production, and month), identified four dimensions (Client, Theatre, Production, Month) and one fact table with an additive sale_amount measure, then wrote full DDL with surrogate and natural keys. Built the ETL pipeline using sequences and multi-table joins, validated row counts, and compared equivalent analytical queries on OLTP vs. mart — demonstrating the dimensional model's advantages for reporting and ranking.</p>
+                    <div class="links"><a href="https://github.com/nisha-khadkabk/nisha-khadkabk.github.io/blob/main/evidence/Midland_Theatre_DW_report.pdf" target="_blank">View Report →</a></div>
+                </div>
+
+                <!-- Project 8 -->
+                <div class="project-card">
+                    <img src="Home_Automation.png" alt="Home automation block diagram">
+                    <h3>Smart Home Automation System</h3>
+                    <div class="tags">
+                        <span class="tag">Arduino</span>
+                        <span class="tag">IoT</span>
+                        <span class="tag">Embedded Systems</span>
+                        <span class="tag">Sensors</span>
+                    </div>
+                    <p>Designed and prototyped a Wi-Fi-based home automation system that lets users remotely monitor and control appliances from an Android device. Built around an Arduino Uno with an ESP8266 Wi-Fi module, the system integrates an LM35 temperature sensor, a 16x2 LCD display, and relay-driven outputs for a water pump, light switch, and fan. Implemented three core automations: automatic water-level monitoring, temperature-based fan speed control, and a remote-controllable light switch — with full block diagrams, algorithms, and flowcharts.</p>
+                    <div class="links"><a href="https://github.com/nisha-khadkabk/nisha-khadkabk.github.io/blob/main/evidence/Home_Automation.pdf" target="_blank">View Report →</a></div>
+                </div>
+
+                <!-- Project 9 -->
+                <div class="project-card">
+                    <img src="Follow_Me_Bot.png" alt="Follow me bot prototype">
+                    <h3>Follow Me Bot — Autonomous Human-Following Robot</h3>
+                    <div class="tags">
+                        <span class="tag">Raspberry Pi</span>
+                        <span class="tag">OpenCV</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Robotics</span>
+                    </div>
+                    <p>Built a 4-wheeled autonomous robot that detects, tracks, and follows a target person in real time. Used a Raspberry Pi 3B with a Pi Camera v2 for vision and an Arduino Uno for motor control, communicating over UART. Implemented object tracking in Python with OpenCV, choosing the MOSSE tracker after benchmarking heavier algorithms (KCF, CSRT) that dropped to 1–4 FPS on the Pi. Solved real engineering constraints — swapped an LM7805 for an LM2596 buck converter and split processing between Pi and Arduino. The final prototype follows a target until stop, with a buzzer to signal a lost target.</p>
+                    <div class="links"><a href="https://github.com/nisha-khadkabk/nisha-khadkabk.github.io/blob/main/evidence/Follow_me_bot.pdf" target="_blank">View Report →</a></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Data Analysis & Modeling</h3>
+                    <ul>
+                        <li>Python (pandas, scikit-learn, XGBoost, SHAP)</li>
+                        <li>SAS (Base, PROC SQL, Enterprise Miner)</li>
+                        <li>Statistical Analysis (Kruskal-Wallis, Chi-square, Correlation)</li>
+                        <li>Machine Learning (Random Forest, XGBoost, Decision Trees, Neural Networks)</li>
+                        <li>Cross-validation & Model Evaluation</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Data Engineering & Big Data</h3>
+                    <ul>
+                        <li>SQL & Oracle SQL</li>
+                        <li>Spark SQL & PySpark</li>
+                        <li>ETL Pipelines & Data Cleaning</li>
+                        <li>Star Schema & Dimensional Modelling</li>
+                        <li>Schema Design & Validation</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Business Intelligence & Visualization</h3>
+                    <ul>
+                        <li>Power BI</li>
+                        <li>Excel (Power Query, PivotTables)</li>
+                        <li>One-page Dashboards</li>
+                        <li>KPI Design & Reporting</li>
+                        <li>Data Storytelling</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Business & Client-Facing Experience</h3>
+                    <ul>
+                        <li>Customer Service & Client Relationship Management</li>
+                        <li>Team Collaboration & Cross-functional Communication</li>
+                        <li>Time Management in High-Pressure Environments</li>
+                        <li>Confidentiality & Person-Centred Care</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+            <h2 class="section-title">Contact</h2>
+            <p style="color: var(--text-secondary); font-size: 1.05rem;">
+                Email me at
+                <a href="mailto:nishakhadkabk@gmail.com">nishakhadkabk@gmail.com</a>
+                if you have any questions.
+            </p>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <p>© 2026 Nisha Khadka BK. All rights reserved.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
